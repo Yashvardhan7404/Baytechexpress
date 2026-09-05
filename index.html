@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baytech Express Logistics Inc. provides professional freight brokerage, logistics and trucking solutions across Ontario and Canada.">
+  <meta name="keywords" content="freight brokerage Ontario, logistics company Ontario, trucking company Ontario, freight services Canada, freight broker Canada">
+  <meta name="theme-color" content="#071a2f">
+  <title>Baytech Express Logistics Inc. | Freight Brokerage & Trucking in Ontario</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   BAYTECH EXPRESS LOGISTICS INC.
+   Responsive static website — HTML + CSS only
+   ========================================================= */
+
+:root{
+  --navy:#071a2f;
+  --navy-2:#0b2745;
+  --blue:#1476ff;
+  --blue-2:#4aa3ff;
+  --orange:#ff8a2a;
+  --ink:#102033;
+  --muted:#617084;
+  --line:#dce5ee;
+  --soft:#f4f7fa;
+  --white:#fff;
+  --shadow:0 20px 60px rgba(7,26,47,.12);
+  --radius:20px;
+  --max:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(7,26,47,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(255,255,255,.1);
+}
+.nav-wrap{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;gap:11px;color:#fff}
+.brand-mark{
+  width:42px;height:42px;border-radius:10px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--blue),var(--blue-2));
+  font-family:Manrope,sans-serif;font-weight:800;font-size:23px;
+  box-shadow:0 8px 22px rgba(20,118,255,.28);
+}
+.brand strong,.brand small{display:block;line-height:1.05}
+.brand strong{font-family:Manrope,sans-serif;font-size:18px;letter-spacing:.09em}
+.brand small{font-size:8px;letter-spacing:.13em;margin-top:4px;color:#aebfd1}
+.nav-menu{display:flex;align-items:center;gap:26px;color:#d9e3ee;font-size:13px;font-weight:600}
+.nav-menu>a:not(.nav-cta):hover{color:#fff}
+.nav-cta{
+  background:var(--orange);color:#111d2b!important;padding:12px 17px;border-radius:8px;
+  text-transform:uppercase;font-size:11px;letter-spacing:.06em;font-weight:800;
+}
+.nav-toggle,.nav-toggle-label{display:none}
+
+.hero{
+  min-height:690px;position:relative;display:flex;align-items:center;color:#fff;
+  background:
+    linear-gradient(90deg,rgba(4,17,31,.97) 0%,rgba(4,17,31,.82) 42%,rgba(4,17,31,.28) 100%),
+    url("https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=2000&q=85") center/cover;
+}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(20,118,255,.16),transparent 34%)}
+.hero-content{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .75fr;gap:70px;align-items:center;padding:100px 0}
+.eyebrow,.section-kicker{font-size:11px;font-weight:800;letter-spacing:.17em;color:var(--orange);margin-bottom:15px}
+.eyebrow{color:#bcdcff}.eyebrow span{display:inline-block;width:28px;height:2px;background:var(--orange);vertical-align:middle;margin-right:9px}
+h1,h2,h3{font-family:Manrope,Inter,sans-serif;line-height:1.08}
+h1{font-size:clamp(42px,5.3vw,76px);letter-spacing:-.055em;max-width:800px}
+h1 em,h2 span{color:var(--blue-2);font-style:normal}
+.hero-text{max-width:680px;color:#d0dbe6;font-size:17px;margin:24px 0 30px}
+.hero-actions,.final-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:14px;
+  min-height:52px;padding:0 21px;border-radius:8px;font-size:11px;font-weight:800;
+  letter-spacing:.07em;text-transform:uppercase;transition:.2s ease;border:1px solid transparent;
+}
+.btn span{font-size:18px;line-height:0}
+.btn-primary{background:var(--orange);color:#101b28}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(255,138,42,.24)}
+.btn-outline{border-color:rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.04)}
+.btn-outline:hover{background:#fff;color:var(--navy)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:#12395e}
+.hero-points{display:flex;gap:18px;flex-wrap:wrap;margin-top:35px;color:#c5d2df;font-size:11px;font-weight:700}
+.hero-points span{white-space:nowrap}
+.hero-card{
+  justify-self:end;width:min(360px,100%);padding:30px;border-radius:22px;
+  background:rgba(8,31,54,.78);border:1px solid rgba(255,255,255,.17);
+  box-shadow:0 25px 70px rgba(0,0,0,.25);backdrop-filter:blur(12px);
+}
+.route-line{height:125px;border-left:2px dashed rgba(74,163,255,.55);margin-left:11px}
+.route-point{display:flex;gap:14px;align-items:center;margin-top:-2px}
+.route-point.bottom{margin-top:-2px}
+.route-point>span{width:23px;height:23px;border:5px solid var(--blue);background:#fff;border-radius:50%;display:block}
+.route-point.bottom>span{border-color:var(--orange)}
+.route-point small{display:block;color:#8ea5bb;font-size:8px;letter-spacing:.15em}
+.route-point strong{display:block;font-size:17px}
+.hero-card-footer{margin-top:28px;padding-top:17px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;font-size:11px;color:#b9c7d4}
+.hero-card-footer b{color:var(--orange)}
+.fine-print{display:block;color:#71869a;font-size:8px;margin-top:8px}
+
+.trust-strip{background:var(--orange);color:#111d2b}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust-grid>div{padding:22px 20px;display:flex;gap:13px;align-items:center;border-right:1px solid rgba(0,0,0,.1)}
+.trust-grid>div:last-child{border:0}
+.trust-grid strong{font-family:Manrope;font-size:21px}
+.trust-grid span{font-size:10px;font-weight:800;line-height:1.35;text-transform:uppercase;letter-spacing:.04em}
+
+.section{padding:105px 0}
+.two-col{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px}
+.about h2,.section-heading h2,.carrier-card h2,.quote-intro h2,.final-inner h2{font-size:clamp(36px,4vw,56px);letter-spacing:-.045em}
+.section-copy{max-width:650px;color:var(--muted);font-size:16px}
+.section-copy p+p{margin-top:18px}
+.text-link{display:inline-flex;gap:14px;color:var(--blue);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;margin-top:24px}
+.text-link span{font-size:17px}
+.services{background:var(--soft)}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:60px;margin-bottom:45px}
+.section-heading>p{max-width:410px;color:var(--muted);font-size:14px}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service-card{background:#fff;border:1px solid var(--line);padding:34px;border-radius:var(--radius);min-height:400px;box-shadow:0 8px 25px rgba(8,31,54,.035);position:relative;overflow:hidden}
+.service-card.featured{border-color:#a9cef8;box-shadow:var(--shadow)}
+.service-card.featured:before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:var(--blue)}
+.icon{width:50px;height:50px;border-radius:12px;background:#eaf3ff;color:var(--blue);display:grid;place-items:center;font-size:24px;margin-bottom:35px}
+.card-number{font-size:10px;font-weight:800;color:#93a3b4;letter-spacing:.14em}
+.service-card h3{font-size:25px;margin:7px 0 14px}
+.service-card>p:not(.card-number){font-size:13px;color:var(--muted)}
+.service-card ul{list-style:none;margin-top:25px;padding-top:20px;border-top:1px solid var(--line);display:grid;gap:8px}
+.service-card li{font-size:11px;font-weight:700}
+.service-card li:before{content:"✓";color:var(--blue);margin-right:9px}
+
+.shipper-section{background:#f6f8fb}
+.process-layout{grid-template-columns:1fr 1fr;gap:70px;align-items:stretch}
+.dark-panel{background:var(--navy);color:#fff;padding:55px;border-radius:22px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;box-shadow:var(--shadow)}
+.light{color:var(--orange)}
+.dark-panel h2{font-size:clamp(36px,4vw,52px);letter-spacing:-.045em}
+.dark-panel p:not(.section-kicker){color:#b9c8d7;font-size:14px;margin:20px 0 28px}
+.process{display:grid;align-content:center}
+.process-step{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:26px 0;border-bottom:1px solid var(--line)}
+.process-step:first-child{padding-top:0}
+.process-step:last-child{border-bottom:0}
+.process-step>span{font-family:Manrope;font-size:24px;font-weight:800;color:var(--blue)}
+.process-step h3{font-size:19px;margin-bottom:7px}
+.process-step p{color:var(--muted);font-size:13px}
+
+.carrier-section{background:#fff}
+.carrier-card{padding:55px 60px;border:1px solid var(--line);border-radius:22px;display:flex;align-items:center;justify-content:space-between;gap:50px;box-shadow:0 15px 50px rgba(7,26,47,.05)}
+.carrier-card>div{max-width:720px}
+.carrier-card>div>p:not(.section-kicker){color:var(--muted);font-size:14px;margin-top:18px}
+.why{background:var(--soft)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.why-grid>div{padding:28px 22px 10px 0;border-right:1px solid var(--line);margin-right:22px}
+.why-grid>div:last-child{border-right:0}
+.why-grid span{font-size:10px;font-weight:800;color:var(--blue)}
+.why-grid h3{font-size:18px;margin:15px 0 9px}
+.why-grid p{font-size:12px;color:var(--muted)}
+
+.coverage{background:var(--navy);color:#fff;padding:90px 0}
+.coverage-inner{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.coverage h2{font-size:clamp(40px,4.5vw,62px);letter-spacing:-.05em}
+.coverage p:not(.section-kicker){color:#aebdcb;margin-top:20px;font-size:14px}
+.coverage-list{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(255,255,255,.15)}
+.coverage-list span{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:12px;font-weight:700;color:#d7e1ea}
+.coverage-list span:before{content:"+";color:var(--orange);margin-right:10px;font-size:16px}
+
+.quote-section{background:#f7f9fb}
+.quote-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px}
+.quote-intro{align-self:start}
+.quote-intro>p:not(.section-kicker){color:var(--muted);font-size:14px;margin:22px 0}
+.contact-box{border-left:3px solid var(--orange);padding:14px 18px;background:#fff;margin-top:30px}
+.contact-box small{display:block;font-size:9px;font-weight:800;letter-spacing:.13em;color:#8796a5}
+.contact-box a{color:var(--blue);font-weight:700;font-size:14px;word-break:break-word}
+.quote-form{background:#fff;border:1px solid var(--line);padding:35px;border-radius:20px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.quote-form label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#5c6c7d}
+.quote-form input,.quote-form select,.quote-form textarea{
+  width:100%;margin-top:7px;border:1px solid #d7e0e8;background:#fbfcfd;
+  border-radius:8px;padding:13px 14px;color:var(--ink);outline:none;font-size:13px;
+}
+.quote-form input:focus,.quote-form select:focus,.quote-form textarea:focus{border-color:var(--blue);background:#fff}
+.quote-form>label{margin-top:18px}
+.form-submit{border:0;margin-top:20px;cursor:pointer}
+.form-note{font-size:9px!important;color:#8a98a6!important;margin-top:11px}
+
+.final-cta{background:linear-gradient(135deg,#0a2541,#0a1b30);color:#fff;padding:80px 0}
+.final-inner{display:flex;align-items:center;justify-content:space-between;gap:70px}
+.final-inner>div:first-child{max-width:760px}
+.final-inner p:not(.section-kicker){color:#b5c5d5;font-size:14px;margin-top:18px}
+.light-btn{border-color:#64788d}
+
+footer{background:#041323;color:#fff;padding:65px 0 20px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:50px;padding-bottom:55px}
+.footer-brand{margin-bottom:18px}
+.footer-grid>div>p{color:#7f93a7;font-size:12px}
+.footer-grid h4{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:#8397aa;margin-bottom:15px}
+.footer-grid>div:not(:first-child)>a{display:block;color:#b9c6d2;font-size:12px;margin:8px 0}
+.footer-grid>div:not(:first-child)>a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.09);padding-top:20px;display:flex;justify-content:space-between;color:#617487;font-size:10px}
+.footer-bottom a{color:#9fb0c0}
+.mobile-actions{display:none}
+
+@media (max-width: 980px){
+  .nav-menu{gap:15px}
+  .hero-content{grid-template-columns:1fr;gap:45px}
+  .hero-card{justify-self:start}
+  .two-col,.process-layout,.quote-layout,.coverage-inner{grid-template-columns:1fr;gap:50px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .service-card:last-child{grid-column:1/-1}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .why-grid>div:nth-child(2){border-right:0}
+  .why-grid>div:nth-child(3),.why-grid>div:nth-child(4){border-top:1px solid var(--line);padding-top:28px}
+  .footer-grid{grid-template-columns:1.4fr 1fr 1fr}
+  .footer-grid>div:last-child{grid-column:2/-1}
+}
+
+@media (max-width: 760px){
+  body{padding-bottom:64px}
+  .container{width:min(var(--max),calc(100% - 28px))}
+  .site-header{position:sticky}
+  .nav-wrap{min-height:68px}
+  .nav-toggle-label{display:flex;flex-direction:column;gap:4px;cursor:pointer;padding:8px}
+  .nav-toggle-label span{width:23px;height:2px;background:#fff}
+  .nav-menu{
+    position:absolute;left:0;right:0;top:68px;background:var(--navy);
+    display:grid;gap:0;padding:8px 14px 18px;border-top:1px solid rgba(255,255,255,.08);
+    transform:translateY(-130%);transition:.25s ease;opacity:0;pointer-events:none;
+  }
+  .nav-menu a{padding:13px 10px}
+  .nav-cta{text-align:center;margin-top:7px}
+  .nav-toggle:checked~.nav-menu{transform:translateY(0);opacity:1;pointer-events:auto}
+  .hero{min-height:730px}
+  .hero-content{padding:80px 0 90px}
+  h1{font-size:clamp(39px,11vw,58px)}
+  .hero-text{font-size:15px}
+  .hero-points{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .hero-card{width:100%;max-width:390px}
+  .trust-grid{grid-template-columns:1fr 1fr}
+  .trust-grid>div{border-bottom:1px solid rgba(0,0,0,.1)}
+  .trust-grid>div:nth-child(2){border-right:0}
+  .trust-grid>div:nth-child(3),.trust-grid>div:nth-child(4){border-bottom:0}
+  .section{padding:75px 0}
+  .section-heading{display:block}
+  .section-heading>p{margin-top:20px}
+  .service-grid{grid-template-columns:1fr}
+  .service-card:last-child{grid-column:auto}
+  .dark-panel{padding:35px}
+  .carrier-card{display:block;padding:35px}
+  .carrier-card .btn{margin-top:25px}
+  .why-grid{grid-template-columns:1fr}
+  .why-grid>div,.why-grid>div:nth-child(2),.why-grid>div:nth-child(3),.why-grid>div:nth-child(4){border-right:0;border-top:1px solid var(--line);padding:22px 0;margin:0}
+  .why-grid>div:first-child{border-top:0}
+  .coverage-list{grid-template-columns:1fr}
+  .quote-form{padding:23px}
+  .form-grid{grid-template-columns:1fr}
+  .final-inner{display:block}
+  .final-actions{margin-top:28px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:35px}
+  .footer-grid>div:first-child{grid-column:1/-1}
+  .footer-grid>div:last-child{grid-column:auto}
+  .footer-bottom{gap:12px;flex-direction:column}
+  .mobile-actions{
+    position:fixed;bottom:0;left:0;right:0;z-index:120;display:grid;grid-template-columns:1fr 1fr;
+    background:#fff;box-shadow:0 -8px 25px rgba(0,0,0,.12)
+  }
+  .mobile-actions a{padding:15px;text-align:center;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+  .mobile-actions a:first-child{background:var(--orange);color:#14202d}
+  .mobile-actions a:last-child{background:var(--navy);color:#fff}
+}
+
+@media (max-width: 430px){
+  .brand strong{font-size:15px}
+  .brand small{font-size:7px}
+  .brand-mark{width:37px;height:37px;font-size:20px}
+  .hero-card{padding:24px}
+  .trust-grid>div{padding:17px 11px}
+  .trust-grid strong{font-size:17px}
+  .trust-grid span{font-size:8px}
+  .hero-actions .btn,.final-actions .btn{width:100%}
+}
+
+</style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Baytech Express home">
+        <span class="brand-mark">B</span>
+        <span>
+          <strong>BAYTECH</strong>
+          <small>EXPRESS LOGISTICS INC.</small>
+        </span>
+      </a>
+
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open navigation">
+      <label class="nav-toggle-label" for="nav-toggle"><span></span><span></span><span></span></label>
+
+      <nav class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#shippers">Shippers</a>
+        <a href="#carriers">Carriers</a>
+        <a href="#contact">Contact</a>
+        <a class="nav-cta" href="#quote">Get a Freight Quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> ONTARIO • CANADA • FREIGHT SOLUTIONS</p>
+          <h1>Moving Freight Forward.<br><em>Delivering Confidence.</em></h1>
+          <p class="hero-text">
+            Professional freight brokerage, logistics and trucking solutions built around
+            dependable transportation, responsive communication and efficient coordination.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#quote">Get a Freight Quote <span>→</span></a>
+            <a class="btn btn-outline" href="#carriers">Become a Carrier</a>
+          </div>
+
+          <div class="hero-points">
+            <span>✓ Freight Brokerage</span>
+            <span>✓ Logistics Solutions</span>
+            <span>✓ Trucking Services</span>
+            <span>✓ Ontario & Canada</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="route-line"></div>
+          <div class="route-point top"><span></span><div><small>ORIGIN</small><strong>Ontario</strong></div></div>
+          <div class="route-point bottom"><span></span><div><small>DESTINATION</small><strong>Across Canada</strong></div></div>
+          <div class="hero-card-footer">
+            <span>Reliable coordination</span>
+            <b>24/7*</b>
+          </div>
+          <small class="fine-print">*Availability and response times may vary by shipment.</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <div class="container trust-grid">
+        <div><strong>01</strong><span>Professional<br>Coordination</span></div>
+        <div><strong>02</strong><span>Flexible Freight<br>Solutions</span></div>
+        <div><strong>03</strong><span>Responsive<br>Communication</span></div>
+        <div><strong>04</strong><span>Ontario Focused<br>Cross-Canada Support</span></div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container two-col">
+        <div>
+          <p class="section-kicker">YOUR FREIGHT. OUR PRIORITY.</p>
+          <h2>Transportation should feel <span>simple.</span></h2>
+        </div>
+        <div class="section-copy">
+          <p>
+            Moving freight requires coordination, communication and reliable transportation partners.
+            Baytech Express Logistics Inc. works with shippers and carriers to create efficient freight
+            solutions that support fast-moving businesses.
+          </p>
+          <p>
+            We focus on reliable transportation solutions, professional freight coordination,
+            responsive communication and flexible service options.
+          </p>
+          <a class="text-link" href="#quote">Talk to our team <span>→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">WHAT WE DO</p>
+            <h2>Logistics built around <span>your load.</span></h2>
+          </div>
+          <p>From the first freight details to final delivery, we coordinate transportation solutions around your requirements.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card featured">
+            <div class="icon">↗</div>
+            <p class="card-number">01</p>
+            <h3>Freight Brokerage</h3>
+            <p>Connecting shippers with transportation capacity for Full Truckload, LTL, Dry Van, Expedited and Dedicated freight.</p>
+            <ul>
+              <li>FTL & LTL</li>
+              <li>Dry Van</li>
+              <li>Expedited</li>
+              <li>Dedicated Freight</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="icon">◎</div>
+            <p class="card-number">02</p>
+            <h3>Logistics Management</h3>
+            <p>Shipment coordination, carrier communication, route planning, scheduling and customized logistics solutions.</p>
+            <ul>
+              <li>Shipment coordination</li>
+              <li>Carrier communication</li>
+              <li>Route planning</li>
+              <li>Scheduling</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="icon">▰</div>
+            <p class="card-number">03</p>
+            <h3>Trucking Services</h3>
+            <p>Local, regional and long-haul transportation, dedicated loads and scheduled shipments.</p>
+            <ul>
+              <li>Local transportation</li>
+              <li>Regional freight</li>
+              <li>Long-haul transportation</li>
+              <li>Scheduled shipments</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shipper-section" id="shippers">
+      <div class="container two-col process-layout">
+        <div class="dark-panel">
+          <p class="section-kicker light">FOR SHIPPERS</p>
+          <h2>A clear path from <span>pickup to delivery.</span></h2>
+          <p>Tell us what you need to move. We'll coordinate an appropriate transportation solution and keep communication moving along the way.</p>
+          <a class="btn btn-primary" href="#quote">Request a Freight Quote <span>→</span></a>
+        </div>
+
+        <div class="process">
+          <article class="process-step">
+            <span>01</span>
+            <div><h3>Tell Us About Your Freight</h3><p>Pickup, destination, freight details and transportation requirements.</p></div>
+          </article>
+          <article class="process-step">
+            <span>02</span>
+            <div><h3>We Coordinate Your Shipment</h3><p>Identify and arrange an appropriate transportation solution.</p></div>
+          </article>
+          <article class="process-step">
+            <span>03</span>
+            <div><h3>Keep Your Business Moving</h3><p>Coordinated pickup through delivery with communication along the way.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section carrier-section" id="carriers">
+      <div class="container carrier-card">
+        <div>
+          <p class="section-kicker">FOR CARRIERS</p>
+          <h2>Join our transportation <span>network.</span></h2>
+          <p>
+            Baytech Express values professional carriers who share a commitment to reliability
+            and communication. Build a dependable partnership with freight opportunities,
+            professional communication, dedicated support and potential for ongoing partnerships.
+          </p>
+        </div>
+        <a class="btn btn-dark" href="mailto:baytechexpress@outlook.com?subject=Carrier%20Network%20Inquiry">Become a Carrier <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="section why">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">WHY BAYTECH EXPRESS</p>
+            <h2>Built on the details that <span>matter.</span></h2>
+          </div>
+        </div>
+        <div class="why-grid">
+          <div><span>01</span><h3>Reliable Transportation Solutions</h3><p>Transportation options aligned with your shipment requirements.</p></div>
+          <div><span>02</span><h3>Strong Industry Partnerships</h3><p>Professional relationships designed to support dependable freight movement.</p></div>
+          <div><span>03</span><h3>Responsive Communication</h3><p>Clear communication throughout shipment coordination.</p></div>
+          <div><span>04</span><h3>Flexible Solutions</h3><p>Service options tailored to customer needs and freight requirements.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage">
+      <div class="container coverage-inner">
+        <div>
+          <p class="section-kicker light">COVERAGE AREA</p>
+          <h2>Ontario focused.<br><span>Canada connected.</span></h2>
+          <p>Serving Ontario and supporting freight movement across Canada.</p>
+        </div>
+        <div class="coverage-list">
+          <span>Greater Toronto Area</span>
+          <span>Southern Ontario</span>
+          <span>Eastern Ontario</span>
+          <span>Southwestern Ontario</span>
+          <span>Northern Ontario</span>
+          <span>Cross-Canada Freight Solutions</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quote-section" id="quote">
+      <div class="container quote-layout">
+        <div class="quote-intro">
+          <p class="section-kicker">REQUEST A QUOTE</p>
+          <h2>Let's move your freight <span>forward.</span></h2>
+          <p>
+            Send us the shipment details below and our team can review your requirements.
+            This static website uses your email client to prepare the request.
+          </p>
+          <div class="contact-box">
+            <small>EMAIL</small>
+            <a href="mailto:baytechexpress@outlook.com">baytechexpress@outlook.com</a>
+          </div>
+        </div>
+
+        <form class="quote-form" action="mailto:baytechexpress@outlook.com" method="post" enctype="text/plain">
+          <div class="form-grid">
+            <label>Full Name<input type="text" name="Full Name" required placeholder="Your name"></label>
+            <label>Company Name<input type="text" name="Company Name" placeholder="Company"></label>
+            <label>Email<input type="email" name="Email" required placeholder="you@company.com"></label>
+            <label>Phone<input type="tel" name="Phone" placeholder="+1"></label>
+            <label>Pickup City / Province<input type="text" name="Pickup" required placeholder="e.g. Mississauga, ON"></label>
+            <label>Delivery City / Province<input type="text" name="Delivery" required placeholder="e.g. Montreal, QC"></label>
+            <label>Pickup Date<input type="date" name="Pickup Date"></label>
+            <label>Freight Type
+              <select name="Freight Type">
+                <option value="">Select type</option>
+                <option>FTL</option><option>LTL</option><option>Dry Van</option>
+                <option>Expedited</option><option>Dedicated Freight</option><option>Other</option>
+              </select>
+            </label>
+            <label>Weight<input type="text" name="Weight" placeholder="e.g. 10,000 lb"></label>
+            <label>Pallets / Pieces<input type="text" name="Pallets or Pieces" placeholder="e.g. 12 pallets"></label>
+            <label>Equipment Required
+              <select name="Equipment">
+                <option value="">Select equipment</option>
+                <option>Dry Van</option><option>Reefer</option><option>Flatbed</option><option>Other</option>
+              </select>
+            </label>
+          </div>
+          <label>Additional Shipment Details<textarea name="Additional Details" rows="5" placeholder="Tell us anything else we should know about the shipment..."></textarea></label>
+          <button class="btn btn-primary form-submit" type="submit">Submit Quote Request <span>→</span></button>
+          <p class="form-note">Submitting opens your default email application with the quote details addressed to Baytech Express.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-inner">
+        <div>
+          <p class="section-kicker light">READY WHEN YOU ARE</p>
+          <h2>Let's move forward <span>together.</span></h2>
+          <p>Whether you're a shipper looking for reliable freight solutions or a carrier interested in growing your network, Baytech Express Logistics Inc. is ready to connect.</p>
+        </div>
+        <div class="final-actions">
+          <a class="btn btn-primary" href="#quote">Get a Quote <span>→</span></a>
+          <a class="btn btn-outline light-btn" href="mailto:baytechexpress@outlook.com?subject=Carrier%20Network%20Inquiry">Become a Carrier</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#home">
+          <span class="brand-mark">B</span>
+          <span><strong>BAYTECH</strong><small>EXPRESS LOGISTICS INC.</small></span>
+        </a>
+        <p>Freight Brokerage · Logistics · Trucking</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="#about">About Us</a><a href="#services">Services</a><a href="#shippers">Shippers</a><a href="#carriers">Carriers</a>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <a href="#services">Freight Brokerage</a><a href="#services">Trucking</a><a href="#services">Logistics Management</a><a href="#services">FTL · LTL · Dedicated</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:baytechexpress@outlook.com">baytechexpress@outlook.com</a>
+        <a href="#quote">Request a Quote</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2026 Baytech Express Logistics Inc. All rights reserved.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <div class="mobile-actions">
+    <a href="#quote">Get a Quote</a>
+    <a href="mailto:baytechexpress@outlook.com">Email Us</a>
+  </div>
+</body>
+</html>
